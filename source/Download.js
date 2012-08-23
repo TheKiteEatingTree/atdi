@@ -8,7 +8,7 @@ enyo.kind({
 	components: [
 		{kind: "FittableRows", components: [
 			{name: "show", kind: "Control", tag: "h1"},
-			{name: "banner", kind: "Image"},
+			{name: "banner", kind: "Image", style: "max-width: 100%;"},
 			{name: "plot", kind: "Control", tag: "p"},
 			{name: "tvshowDiv", classes:"atdi-tags-div", kind: "Control", tag: "div", components: [
 				{tag: "h3", classes: "atdi-tags-h3", content: "tvshow.nfo tags"},
