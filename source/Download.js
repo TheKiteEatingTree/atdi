@@ -10,15 +10,29 @@ enyo.kind({
 			{name: "show", kind: "Control", tag: "h1"},
 			{name: "banner", kind: "Image"},
 			{name: "plot", kind: "Control", tag: "p"},
-	        {name: "titleCheck", kind: "atdi.checkbox", label: "title" },
-	        {name: "idCheck", kind: "atdi.checkbox", label: "id" },
-	        {name: "plotCheck", kind: "atdi.checkbox", label: "plot" },
-	        {name: "genreCheck", kind: "atdi.checkbox", label: "genre" },
-	        {name: "mpaaCheck", kind: "atdi.checkbox", label: "mpaa" },
-	        {name: "actorsCheck", kind: "atdi.checkbox", label: "actors" },
-	        {kind: "onyx.InputDecorator", components: [
-	            {kind: "onyx.Input"}
-	        ]},
+			{name: "tvshowDiv", classes:"atdi-tags-div", kind: "Control", tag: "div", components: [
+				{tag: "h3", classes: "atdi-tags-h3", content: "tvshow.nfo tags"},
+				{name: "tvtitleCheck", kind: "atdi.checkbox", label: "title" },
+		        {name: "tvidCheck", kind: "atdi.checkbox", label: "id" },
+		        {name: "tvplotCheck", kind: "atdi.checkbox", label: "plot" },
+		        {name: "tvgenreCheck", kind: "atdi.checkbox", label: "genre" },
+		        {name: "tvmpaaCheck", kind: "atdi.checkbox", label: "mpaa" },
+		        {name: "tvactorsCheck", kind: "atdi.checkbox", label: "actors" }
+			]},
+			{name: "tvshowDiv", classes:"atdi-tags-div", kind: "Control", tag: "div", 
+			 style: "width: 300px;", components: [
+				{tag: "h3", classes: "atdi-tags-h3", content: "episode tags"},
+				{name: "titleCheck", kind: "atdi.checkbox", label: "title" },
+		        {name: "idCheck", kind: "atdi.checkbox", label: "id" },
+		        {name: "plotCheck", kind: "atdi.checkbox", label: "plot" },
+		        {name: "ratingCheck", kind: "atdi.checkbox", label: "rating" },
+		        {name: "seasonCheck", kind: "atdi.checkbox", label: "season" },
+		        {name: "episodeCheck", kind: "atdi.checkbox", label: "episode" },
+		        {name: "airedCheck", kind: "atdi.checkbox", label: "aired" },
+		        {kind: "onyx.InputDecorator", components: [
+		            {kind: "onyx.Input"}
+		        ]}
+			]},
 			{kind: "onyx.Button", content: "Download", ontap: "downloadTapped"},
 			{
 				name: "saveBanner",
