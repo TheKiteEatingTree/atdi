@@ -1,0 +1,51 @@
+/*
+	Put anything you reference with "url()" in ../assets/
+	This way, you can minify your application, and just remove the "source" folder for production
+*/
+#app {
+	margin: 16px;
+	border-radius: 4px;
+	background-color: white;
+	padding: 16px;
+}
+
+.search {
+	margin: 10px;
+}
+
+.main-panels {
+	min-height: 300px; 
+	min-width: 320px;
+	margin-left: 25px;
+}
+
+.list {
+	width: 400px;
+	padding-right: 15px;
+	border: none;
+}
+
+.list-item {
+	border-bottom: 1px solid black;
+	width: 100%;
+	margin-right: 29px;
+}
+
+.list-item:hover {
+	cursor: pointer;
+}
+
+.atdi-checkbox-check {
+	height: 32px;
+	width: 32px;
+}
+
+.atdi-checkbox {
+	height: 32px;
+	margin: 5px;
+}
+
+.atdi-checkbox-label {
+	margin-left: 5px;
+	font-size: larger;
+}

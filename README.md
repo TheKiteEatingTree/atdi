@@ -1,4 +1,6 @@
-atdi
-====
+bootplate
+=========
 
-At the Drive-In .nfo Generator
+Application template for packaged Enyo
+
+Refer to the [Wiki](https://github.com/enyojs/enyo/wiki/Bootplate) for how to get started.

@@ -1,0 +1,10 @@
+enyo.depends(
+	"$lib/layout",
+	"$lib/onyx",
+	"App.css",
+	"App.js",
+	"xmltojson.js",
+	"Search.js",
+	"Download.js",
+	"Checkbox.js"
+);
