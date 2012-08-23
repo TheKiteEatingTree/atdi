@@ -8,14 +8,27 @@ enyo.kind({
 	components: [
 		{kind: "FittableRows", components: [
 			{name: "show", kind: "Control", tag: "h1"},
+			{name: "banner", kind: "Image"},
+			{name: "plot", kind: "Control", tag: "p"},
 	        {name: "titleCheck", kind: "atdi.checkbox", label: "title" },
 	        {name: "idCheck", kind: "atdi.checkbox", label: "id" },
 	        {name: "plotCheck", kind: "atdi.checkbox", label: "plot" },
 	        {name: "genreCheck", kind: "atdi.checkbox", label: "genre" },
+	        {name: "mpaaCheck", kind: "atdi.checkbox", label: "mpaa" },
+	        {name: "actorsCheck", kind: "atdi.checkbox", label: "actors" },
 	        {kind: "onyx.InputDecorator", components: [
 	            {kind: "onyx.Input"}
 	        ]},
 			{kind: "onyx.Button", content: "Download", ontap: "downloadTapped"},
+			{
+				name: "saveBanner",
+				kind: "enyo.WebService", 
+				url: "source/php/saveBanner.php",
+				method: "GET",
+				handleAs: "text",
+				onResponse: "gotBanner",
+				onError: "ughBanner"
+			},
 			{
 				name: "downloadNFO",
 				kind: "enyo.WebService", 
@@ -27,11 +40,27 @@ enyo.kind({
 			}
 		]}
 	],
-	setSeries: function(title, id)
+	setSeries: function(title, plot, id, banner)
 	{
 		this.title = title;
+		this.plot = plot;
 		this.seriesid = id;
+		this.banner = banner;
 		this.$.show.setContent(title);
+		this.$.plot.setContent(plot);
+		this.$.banner.setSrc("");
+		this.$.saveBanner.send({
+			mirror: this.mirror,
+			banner: this.banner,
+			id: this.seriesid
+		})
+	},
+	gotBanner: function(inSender, inEvent){
+		enyo.log(inEvent.data);
+		this.$.banner.setSrc("source/php/banners/"+this.seriesid+".jpg");
+	},
+	ughBanner: function(inSender, inEvent){
+		enyo.log("ugh");
 	},
 	gotDownload: function(inSender, inEvent){
 		enyo.log(inEvent.data);

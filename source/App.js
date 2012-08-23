@@ -64,6 +64,6 @@ enyo.kind({
 	},
 	titleTapped: function(inSender, inEvent){
 		this.$.main.setIndex(1);
-		this.$.download.setSeries(inEvent.title,inEvent.id);
+		this.$.download.setSeries(inEvent.title,inEvent.plot,inEvent.id,inEvent.banner);
 	}
 });

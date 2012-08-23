@@ -82,7 +82,9 @@ enyo.kind({
 	titleTapped: function(inSender, inEvent){
 		this.doTitleTapped({
 			title: this.searchResults[inEvent.index].SeriesName,
-			id: this.searchResults[inEvent.index].seriesid
+			plot: this.searchResults[inEvent.index].Overview,
+			id: this.searchResults[inEvent.index].seriesid,
+			banner: this.searchResults[inEvent.index].banner
 		});
 		this.current = inEvent.index;
 	}
