@@ -36,7 +36,7 @@ XML;
 		$this->aired = $episode->FirstAired;
 	}
 	
-	public function saveAsNFO($path,$format,$title,$id,$rating,$season,$episode,$plot,$aired)
+	public function saveAsNFO($path,$format,$tvShow,$title,$id,$plot,$rating,$season,$episode,$aired)
 	{
 		$nfo = new SimpleXMLElement(self::xmlStart);
 		if ($title)
@@ -60,7 +60,7 @@ XML;
 		if ($aired)
 			$nfo->aired = $this->aired;
 		
-		$fileName = $this->getFileName('%e - %t');
+		$fileName = $this->getFileName($format,$tvShow);
 		
 		if (!is_dir($path))
 			mkdir($path);
@@ -72,12 +72,14 @@ XML;
 		$dom->save($path.'/'.$fileName);
 	}
 	
-	private function getFileName($format)
+	private function getFileName($format,$tvShow)
 	{
 		/*
 		 * Keywords:
 		 * 
-		 * %T -> title with periods separating words Doctor.Who
+		 * %V -> tv show title with periods separating words Doctor.Who
+		 * %v -> tv show title with normal spaces
+		 * %T -> title with periods separating words What.A.Knight.For.A.Knight
 		 * %t -> title with normal spaces
 		 * %i  -> id
 		 * %S -> season
@@ -105,6 +107,12 @@ XML;
 				$i++;
 				switch($format[$i])
 				{
+					case 'V':
+						$filename .= str_replace(' ','.',$tvShow);
+						break;
+					case 'v':
+						$filename .= $tvShow;
+						break;
 					case 'T':
 						$filename .= str_replace(' ','.',$this->title);
 						break;

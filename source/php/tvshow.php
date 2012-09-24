@@ -52,9 +52,10 @@ XML;
 		
 	}
 	
-	public function saveAsNFO($path,$title,$plot,$id,$genre,$actors,$mpaa)
+	public function saveAsNFO($path,$title,$id,$plot,$genre,$mpaa,$actors)
 	{
 		$nfo = new SimpleXMLElement(self::xmlStart);
+
 		if ($title)
 			$nfo->title = $this->title;
 		

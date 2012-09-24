@@ -12,7 +12,7 @@ enyo.kind({
         	kind: "onyx.Checkbox", 
         	classes: "atdi-checkbox-check", 
         	checked: true,
-        	onChange: "checkClicked"
+        	onchange: "checkClicked"
         },
         {name: "label", classes: "atdi-checkbox-label", content: ""}
 	],
@@ -22,7 +22,10 @@ enyo.kind({
 		this.$.label.setContent(this.label);
 	},
 	checkClicked: function(inSender, inEvent){
-		this.checked = this.$.check.checked;
+		if (inSender.checked)
+			this.checked = 1;
+		else
+			this.checked = 0;
 	},
 	labelChanged: function()
 	{

@@ -18,7 +18,8 @@ include('zipper.php');
 	
 	$tvshow = new tvshow();
 	$tvshow->loadFromTVDB($series);
-	$tvshow->saveAsNFO($seriesID,true,true,true,true,true,true);
+	$tvshow->saveAsNFO($seriesID,$_GET['tvtitleCheck'],$_GET['tvidCheck'],$_GET['tvplotCheck'],
+					   $_GET['tvgenreCheck'],$_GET['tvmpaaCheck'],$_GET['tvactorsCheck']);
 	
 	// Create Episode .nfo files
 	$episodes = $seriesData->Episode;
@@ -37,8 +38,9 @@ include('zipper.php');
 		if ($season<10)
 			$season .= '0';
 		$season .= $episode->getSeason();
-		$episode->saveAsNFO($seriesID.'/Season '.$season,"",
-					   true,false,false,true,true,true,true);
+		$episode->saveAsNFO($seriesID.'/Season '.$season,$_GET['format'],$tvshow->getTitle(), $_GET['titleCheck'],
+						    $_GET['idCheck'], $_GET['plotCheck'], $_GET['ratingCheck'],$_GET['seasonCheck'], 
+							$_GET['episodeCheck'],$_GET['airedCheck']);
 		$i++;
 	}
 	
