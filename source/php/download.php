@@ -4,7 +4,7 @@ include('episode.php');
 include('zipper.php');
 
 	// Get all of the info for a series
-	$key = file_get_contents("key.txt");
+	$key = ltrim(rtrim(file_get_contents("key.txt")));
 	$mirror = $_GET['mirror'];
 	$language = $_GET['language'];
 	$seriesID = $_GET['seriesID'];
